@@ -13,11 +13,12 @@ public class RelatorioPorAtividade extends Relatorio {
 		super(estudante, sumarizacao);
 		this.tipoEspecifico = tipoEspecifico;
 	}
-	
+
 	@Override
 	public String toString() {
 		String apresentacao = super.apresentacaoDoEstudante() + "\nCréditos por atividade:";
-		apresentacao += "\n" + this.tipoEspecifico.getTipo() + ": " + super.creditoPorTipoAtividade(this.tipoEspecifico);
+		apresentacao += "\n" + this.tipoEspecifico.getTipo() + ": "
+				+ super.creditoPorTipoAtividade(this.tipoEspecifico);
 		return apresentacao;
 	}
 }

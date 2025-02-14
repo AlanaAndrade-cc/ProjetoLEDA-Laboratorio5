@@ -13,32 +13,32 @@ public class EstagioTest {
 	void testCriarEstagioComPoucoTempoAcumulado() {
 		String mensagem = assertThrows(IllegalArgumentException.class, () -> {
 			new Estagio("descrição", "link", 299, "empresa");
-			}).getMessage();
+		}).getMessage();
 		assertEquals("A unidade de tempo acumulada não é suficiente", mensagem);
 	}
-	
+
 	@Test
 	void testCriarEstagioComNomeDaEmpresaNulo() {
 		String mensagem = assertThrows(NullPointerException.class, () -> {
 			new Estagio("descrição", "link", 300, null);
-			}).getMessage();
+		}).getMessage();
 		assertEquals("A especificação da atividade não pode ser nula", mensagem);
 	}
-	
+
 	@Test
 	void testCriarEstagioComNomeDaEmpresaVazio() {
 		String mensagem = assertThrows(IllegalArgumentException.class, () -> {
 			new Estagio("descrição", "link", 300, "");
-			}).getMessage();
+		}).getMessage();
 		assertEquals("A especificação da atividade não pode ser vazia", mensagem);
 	}
-	
+
 	@Test
 	void testCalcularCreditosEstagio() {
 		Atividade atividadeComplementar = new Estagio("descrição", "link", 300, "empresa");
 		assertEquals(5, atividadeComplementar.creditos());
 	}
-	
+
 	@Test
 	void testCalcularCreditosMaximosEstagio() {
 		Atividade atividadeComplementar = new Estagio("descrição", "link", 1200, "empresa");

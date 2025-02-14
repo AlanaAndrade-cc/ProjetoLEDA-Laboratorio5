@@ -11,13 +11,14 @@ import enums.TipoAtividadeComplementar;
 public class ValidadorRelatorio extends Validador {
 
 	/**
-	 * Representação de várias mensagens de erro relacionadas à validação das informações do Relatorio.
+	 * Representação de várias mensagens de erro relacionadas à validação das
+	 * informações do Relatorio.
 	 */
 	private static enum Erro {
 		SUMARIZACAO_INCOMPLETA("A sumarização precisa ter todos os tipos de Atividade Complementar");
-		
+
 		private final String mensagem;
-		
+
 		/**
 		 * Cria o Enum
 		 * 
@@ -26,7 +27,7 @@ public class ValidadorRelatorio extends Validador {
 		Erro(String mensagem) {
 			this.mensagem = mensagem;
 		}
-		
+
 		/**
 		 * Retorna a mensagem de erro
 		 * 
@@ -36,12 +37,13 @@ public class ValidadorRelatorio extends Validador {
 			return this.mensagem;
 		}
 	}
-	
+
 	/**
 	 * Valida se o mapa de sumarização tem todos os tipos de AtividadeComplementar.
 	 * 
 	 * @param sumarizacao o mapa a ser validado
-	 * @throws IllegalArgumentException se algum tipo de Atividade Complementar não estiver em sumarizacao
+	 * @throws IllegalArgumentException se algum tipo de Atividade Complementar não
+	 *                                  estiver em sumarizacao
 	 */
 	public static void validaSumarizacao(Map<TipoAtividadeComplementar, Integer> sumarizacao) {
 		for (TipoAtividadeComplementar tipo : TipoAtividadeComplementar.values()) {

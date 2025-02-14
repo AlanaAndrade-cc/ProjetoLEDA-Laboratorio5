@@ -8,12 +8,12 @@ import org.junit.jupiter.api.Test;
 import interfaces.Atividade;
 
 public class MonitoriaTest {
-	
+
 	@Test
 	void testCriarMonitoriaComPoucoTempoAcumulado() {
 		String mensagem = assertThrows(IllegalArgumentException.class, () -> {
 			new Monitoria("descrição", "link", 0, "empresa");
-			}).getMessage();
+		}).getMessage();
 		assertEquals("A unidade de tempo acumulada não é suficiente", mensagem);
 	}
 
@@ -21,24 +21,24 @@ public class MonitoriaTest {
 	void testCriarMonitoriaComDisciplinaNula() {
 		String mensagem = assertThrows(NullPointerException.class, () -> {
 			new Monitoria("descrição", "link", 2, null);
-			}).getMessage();
+		}).getMessage();
 		assertEquals("A especificação da atividade não pode ser nula", mensagem);
 	}
-	
+
 	@Test
 	void testCriarMonitoriaComDisciplinaVazia() {
 		String mensagem = assertThrows(IllegalArgumentException.class, () -> {
 			new Monitoria("descrição", "link", 2, "");
-			}).getMessage();
+		}).getMessage();
 		assertEquals("A especificação da atividade não pode ser vazia", mensagem);
 	}
-	
+
 	@Test
 	void testCalcularCreditosMonitoria() {
 		Atividade atividadeComplementar = new Monitoria("descrição", "link", 3, "disciplina");
 		assertEquals(12, atividadeComplementar.creditos());
 	}
-	
+
 	@Test
 	void testCalcularCreditosMaximosMonitoria() {
 		Atividade atividadeComplementar = new Monitoria("descrição", "link", 5, "disciplina");
